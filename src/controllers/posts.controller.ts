@@ -1,5 +1,5 @@
 import * as postModel from "../models/posts.model";
-import { postBodyType } from "../routes/schemas/posts.schema";
+import { PostBodyType } from "../routes/schemas/posts.schema";
 
 export async function getPosts() {
   try {
@@ -26,7 +26,7 @@ export async function deletePost(id: number) {
   }
 }
 
-export async function createPost(post: postBodyType) {
+export async function createPost(post: PostBodyType) {
   try {
     return await postModel.createPost(post);
   } catch (error) {

@@ -1,5 +1,3 @@
-import { postBodyType } from "../routes/schemas/posts.schema";
-
 export interface Post {
   text: string;
   likes: number;

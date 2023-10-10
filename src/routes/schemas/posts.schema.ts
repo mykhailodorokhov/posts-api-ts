@@ -1,11 +1,11 @@
 import { Static, Type } from "@sinclair/typebox";
 
-export const postBodySchema = Type.Object({
+export const PostBodySchema = Type.Object({
   text: Type.String(),
   hashtags: Type.Optional(Type.Array(Type.String())),
 });
 
-export type postBodyType = Static<typeof postBodySchema>;
+export type PostBodyType = Static<typeof PostBodySchema>;
 
 // old way 💀
 
