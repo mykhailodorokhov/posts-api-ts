@@ -1,31 +1,16 @@
 import { FastifyInstance, RouteOptions } from "fastify";
 import * as postsController from "../controllers/posts.controller";
-
-const bodySchema = {
-  type: "object",
-  properties: {
-    text: {
-      type: "string",
-    },
-    hashtags: {
-      type: "array",
-      items: {
-        type: "string",
-      },
-    },
-  },
-  required: ["text"],
-};
+import { postBodySchema, postBodyType } from "./schemas/posts.schema";
 
 export default function createPost(fastify: FastifyInstance): RouteOptions {
   return {
     method: "POST",
     url: "/api/posts",
     schema: {
-      body: bodySchema,
+      body: postBodySchema,
     },
     handler: async (request, reply) => {
-      const newPost = request.body as { text: string; hashtags?: string[] };
+      const newPost = request.body as postBodyType;
       const posts = await postsController.createPost(newPost);
       reply.code(201).send(posts);
     },
