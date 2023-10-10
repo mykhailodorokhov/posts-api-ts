@@ -1,0 +1,16 @@
+{
+  "name": "posts-api",
+  "scripts": {
+    "start": "node ./dist",
+    "build": "tsc",
+    "dev": "tsc && node ./dist"
+  },
+  "author": "Mike",
+  "devDependencies": {
+    "@types/node": "^20.8.4",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "fastify": "^4.23.2"
+  }
+}
